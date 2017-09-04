@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="q1k-33-et7">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <scenes>
+        <!--Devices-->
+        <scene sceneID="yCK-h2-oC8">
+            <objects>
+                <tableViewController storyboardIdentifier="MainTableViewControllerID" id="JVw-iu-Syi" customClass="MainTableViewController" customModule="ParticleController" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" id="0cA-7Y-mWB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="MainViewCellID" rowHeight="140" id="c5r-w5-Yry" customClass="MainTableViewCell" customModule="ParticleController" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="140"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c5r-w5-Yry" id="lo7-qY-thQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="139"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cellPhoneCloud" translatesAutoresizingMaskIntoConstraints="NO" id="b82-Cq-JHg">
+                                            <rect key="frame" x="8" y="8" width="76" height="76"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Device Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iad-7i-mzM">
+                                            <rect key="frame" x="92" y="8" width="102" height="76"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="21a-yK-aaZ" customClass="ChainIcon" customModule="ParticleController" customModuleProvider="target">
+                                            <rect key="frame" x="29" y="85" width="35" height="35"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="connectivityView" destination="21a-yK-aaZ" id="Xos-es-1lg"/>
+                                    <outlet property="deviceLabel" destination="iad-7i-mzM" id="z2q-Hy-jDX"/>
+                                    <outlet property="deviceTypeImageView" destination="b82-Cq-JHg" id="4sn-wp-een"/>
+                                    <segue destination="ghJ-p6-3SO" kind="show" identifier="MainToDeviceDetailSegue" trigger="accessoryAction" id="pYX-PS-l4k"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="JVw-iu-Syi" id="AbC-68-dSD"/>
+                            <outlet property="delegate" destination="JVw-iu-Syi" id="Bza-4Q-bfV"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Devices" id="ex8-Ld-nYN">
+                        <barButtonItem key="leftBarButtonItem" image="setupIcon" id="4Wc-Dh-kfr">
+                            <connections>
+                                <action selector="setupButtonPressed:" destination="JVw-iu-Syi" id="kvK-CR-x2e"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Maps" id="Q2z-2D-dF5"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="byK-B1-KO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1458" y="194"/>
+        </scene>
+        <!--Device Detail Table View Controller-->
+        <scene sceneID="IPD-qI-wUh">
+            <objects>
+                <tableViewController storyboardIdentifier="DeviceDetailTableViewControllerID" id="ghJ-p6-3SO" customClass="DeviceDetailTableViewController" customModule="ParticleController" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" id="gLK-aZ-qZa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailCellID" rowHeight="110" id="sM1-RB-MFH">
+                                <rect key="frame" x="0.0" y="92" width="600" height="110"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sM1-RB-MFH" id="E67-nq-ut0">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="109"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ghJ-p6-3SO" id="FQe-au-Scg"/>
+                            <outlet property="delegate" destination="ghJ-p6-3SO" id="5NE-d6-u9h"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="YPd-SI-VQo" kind="presentation" identifier="DeviceDetailToResultSegue" id="XVQ-n3-rPe"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mXp-4x-deb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2139" y="194"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="70I-N5-lz6">
+            <objects>
+                <viewController storyboardIdentifier="ResultViewControllerID" id="YPd-SI-VQo" customClass="ResultViewController" customModule="ParticleController" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pdD-8l-OvH"/>
+                        <viewControllerLayoutGuide type="bottom" id="MuO-rm-ggj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xSR-rX-QTZ">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="500"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ic6-nN-Y5s">
+                                <rect key="frame" x="110" y="235" width="80" height="30"/>
+                                <state key="normal" title="First Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fY-zt-QCk">
+                                <rect key="frame" x="99" y="273" width="102" height="30"/>
+                                <state key="normal" title="Second Button"/>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Ic6-nN-Y5s" firstAttribute="centerY" secondItem="xSR-rX-QTZ" secondAttribute="centerY" id="PeG-4K-X6W"/>
+                            <constraint firstItem="Ic6-nN-Y5s" firstAttribute="centerX" secondItem="xSR-rX-QTZ" secondAttribute="centerX" id="VPe-Mz-f8C"/>
+                            <constraint firstItem="8fY-zt-QCk" firstAttribute="top" secondItem="Ic6-nN-Y5s" secondAttribute="bottom" constant="8" id="wXU-0o-mRb"/>
+                            <constraint firstItem="8fY-zt-QCk" firstAttribute="centerX" secondItem="xSR-rX-QTZ" secondAttribute="centerX" id="yka-4o-GIo"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="500"/>
+                    <connections>
+                        <outlet property="firstButton" destination="Ic6-nN-Y5s" id="JVm-Wm-14X"/>
+                        <outlet property="secondButton" destination="8fY-zt-QCk" id="iR3-3A-x66"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EBd-mG-DgJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2731" y="194"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nkD-WW-oUa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q1k-33-et7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P3g-uY-gfd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JVw-iu-Syi" kind="relationship" relationship="rootViewController" id="RJe-e6-cmb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ijc-Nu-Fmg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="646" y="194"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cellPhoneCloud" width="76" height="76"/>
+        <image name="setupIcon" width="22" height="22"/>
+    </resources>
+</document>
